@@ -1,4 +1,9 @@
 [alias]
+    rb = rebase
+    rbc = rebase --continue
+    rba = rebase --abort
+    lfl = log --follow
+    whatadded = log --diff-filter=A
     showfile = diff-tree --no-commit-id --name-only -r
     mnf = merge --no-ff
     pr = pull --rebase
@@ -17,14 +22,11 @@
     rmm = !git ls-files -d -z | xargs -0 git-rm && git status
     mate = !git-ls-files -m -z | xargs -0 mate
     mateall = !git-ls-files -m -o --exclude-standard -z | xargs -0 mate
-    st = status
     df = difftool --dir-diff
     dfh = difftool --dir-diff HEAD
     co = checkout
     ci = commit
     br = branch
-    svnpull = svn rebase
-    svnpush = svn dcommit
     undo = git reset --soft HEAD^
     # Log history (requires git 1.8.3  for "%C(auto)" ) : display short sha1, refs (branches,tags), log msg, relative datetime and author
     lf = log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit --date=relative --format=fuller 
