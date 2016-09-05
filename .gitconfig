@@ -35,7 +35,7 @@
     lga = log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit --date=relative --all 
 [user]
 	name = Nans Pellicari
-	email = n.pellicari@paris-turf.com
+	email = nans.pellicari@gmail.com
 [core]
 	editor = vim
 [color]
