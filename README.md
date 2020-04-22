@@ -10,6 +10,9 @@ You can import the config file in your .gitconfig file like this :
 ```bash
 [include]
     path = git-config/.gitconfig
+[user]
+    name = My Name
+    email = my.name@email.com
 ```
 
 In this way you can keep your git folder.
