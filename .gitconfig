@@ -1,12 +1,15 @@
 [alias]
+    cp = cherry-pick
     rb = rebase
     rbc = rebase --continue
     rba = rebase --abort
+    rbs = rebase --skip
     lfl = log --follow
     whatadded = log --diff-filter=A
     showfile = diff-tree --no-commit-id --name-only -r
     mnf = merge --no-ff
     pr = pull --rebase
+    amendf = commit --amend --no-edit
     amend = commit --amend
     st = status
     who = shortlog -sne
@@ -26,8 +29,12 @@
     dfh = difftool --dir-diff HEAD
     co = checkout
     ci = commit
+    cleanbr = ! git branch -d `git branch --merged | grep -v '^*\\|main\\|master\\|develop'`
+    brm = branch --merged
     br = branch
-    undo = git reset --soft HEAD^
+    undos = reset --soft HEAD^
+    undoh = reset --hard HEAD^
+    undo = reset HEAD^
     # Log history (requires git 1.8.3  for "%C(auto)" ) : display short sha1, refs (branches,tags), log msg, relative datetime and author
     lf = log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit --date=relative --format=fuller 
     lg = log --graph --pretty=format:'%C(yellow)%h%Creset %C(red)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit --date=relative 
@@ -43,21 +50,13 @@
 #	cmd = extMerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 #[mergetool]
 #	trustExitCode = false
-[diff]
-#	external = extDiff
-#	external = /home/nans/git-meld
-	tool = meld
-
 [push]
 	default = current
-[difftool]
-	prompt = false
+[diff]
+    tool = vscode
 [merge]
-	tool = meld
-[mergetool]
-	prompt = false
-#[mergetool "meld"]
-#	cmd = meld \"$BASE $LOCAL $REMOTE $MERGED\"
-#	trustExitCode = false
-#[difftool "meld"]
-#	cmd = meld \"$LOCAL $REMOTE\"
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
