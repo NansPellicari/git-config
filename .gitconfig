@@ -29,7 +29,7 @@
     dfh = difftool --dir-diff HEAD
     co = checkout
     ci = commit
-    cleanbr = ! git branch -d `git branch --merged | grep -v '^*\\|main\\|master\\|develop'`
+    cleanbr = ! git branch -d `git branch --merged | grep -v '^*\\|main\\|master\\|develop\\|release'`
     brm = branch --merged
     br = branch
     undos = reset --soft HEAD^
